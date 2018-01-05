@@ -1,0 +1,16 @@
+.blv {
+    margin-right: 5px;
+    font-weight: normal;
+    font-size: 85%;
+    color: rgb(162, 169, 177);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.top-space { 
+    margin-top: 0.5rem;
+}
+.othermovies {
+    margin-top: 1rem !important;
+}
+
