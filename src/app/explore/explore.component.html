@@ -1,11 +1,11 @@
 <div class="row search-filter">
-  <div class="col-md-3">
-    <select class="custom-select"  (change)="onSelect($event)">
-      <option *ngFor="let opt of exploreOpt" [value]="opt.id">{{opt.desc}}</option>
-    </select>
-  </div>
   <div class="text-muted col-md-7">
     <h4>{{selectedOpt.desc}}</h4>
+  </div>
+  <div class="col-md-3">
+    <select class="custom-select" (change)="onSelect($event)">
+      <option *ngFor="let opt of exploreOpt" [value]="opt.id">{{opt.desc}}</option>
+    </select>
   </div>
   <div class="col-md-2">
     <input type="text" class="form-control" id="search-input" placeholder="Search..." autocomplete="off">

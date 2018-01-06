@@ -4,6 +4,11 @@ import { MovieService } from 'app/movie.service';
 import { MovieDetail } from 'app/MovieDetail';
 import { Exploreopts } from 'app/exploreopts';
 
+
+const movieCompanies = [429, 420, 2301, 7505, 9993, 19551];
+const companyDC = [429, 9993];
+const companyMarvel = [420, 2301, 7505, 19551];
+
 @Component({
   selector: 'app-explore',
   templateUrl: './explore.component.html',
@@ -16,9 +21,6 @@ export class ExploreComponent implements OnInit {
     { id: 3, desc: 'Marvel Movies' }
   ];
   selectedOpt: Exploreopts = this.exploreOpt[0];
-  movieCompanies = [429, 420, 2301, 7505, 9993, 19551];
-  companyDC = [429, 9993];
-  companyMarvel = [420, 2301, 7505, 19551];
   displayList: MovieDetail[];
   constructor(private movieService: MovieService) { this.displayList = []; }
 
@@ -29,11 +31,11 @@ export class ExploreComponent implements OnInit {
   optionBasedCompanyIdList(selectedOpt: Exploreopts): number[] {
     let companyList = [];
     if (selectedOpt.id === 1) {
-      companyList = this.movieCompanies;
+      companyList = movieCompanies;
     } else if (selectedOpt.id === 2) {
-      companyList = this.companyDC;
+      companyList = companyDC;
     } else if (selectedOpt.id === 3) {
-      companyList = this.companyMarvel;
+      companyList = companyMarvel;
     }
     return companyList;
   }
