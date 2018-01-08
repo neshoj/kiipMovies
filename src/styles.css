@@ -1,6 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 /* Space out content a bit */
 body {
+    font-family: Roboto, Helvetica , sans-serif;
+    font-size: 13px;
+    line-height: 1.5384616;
     padding-top: 1.5rem;
     padding-bottom: 0.5rem;
   }

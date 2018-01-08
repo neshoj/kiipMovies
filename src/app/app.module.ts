@@ -1,3 +1,4 @@
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -16,6 +17,10 @@ import { PagenotfoundComponent } from 'app/pagenotfound/pagenotfound.component';
 import { MovieService } from './movie.service';
 import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 import { AppRoutingModule } from 'app/app-routing.module';
+import { AuthGuard } from 'app/auth-guard.service';
+import { AuthService } from './auth.service';
+import { LoginComponent } from './login/login.component';
+import { DashboardRouting } from 'app/dashboard/dashboard-routing.module';
 
 
 
@@ -30,16 +35,19 @@ import { AppRoutingModule } from 'app/app-routing.module';
     MarvelComicsComponent,
     ExploreComponent,
     PagenotfoundComponent,
-    MovieDetailComponent
+    MovieDetailComponent,
+    LoginComponent,
+    DashboardComponent
   ],
   imports: [
+    DashboardRouting,
     AppRoutingModule,
     BrowserModule,
     FormsModule,
     HttpClientModule,
     HttpModule
   ],
-  providers: [MovieService],
+  providers: [MovieService, AuthGuard, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
