@@ -14,3 +14,10 @@
     margin-top: 1rem !important;
 }
 
+  /* Custom page footer */
+  .footer {
+    padding-top: 20px;
+    margin-top: 20px;
+    color: #777;
+    border-top: .05rem solid #e5e5e5;
+  }

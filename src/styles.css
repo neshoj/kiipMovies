@@ -28,13 +28,7 @@ body {
     line-height: 3rem;
   }
   
-  /* Custom page footer */
-  .footer {
-    padding-top: 20px;
-    margin-top: 20px;
-    color: #777;
-    border-top: .05rem solid #e5e5e5;
-  }
+
   
 
   .container-narrow > hr {
@@ -63,8 +57,7 @@ body {
   @media screen and (min-width: 48em) {
     /* Remove the padding we set earlier */
     .header,
-    .marketing,
-    .footer {
+    .marketing {
       padding-right: 0;
       padding-left: 0;
     }
@@ -84,4 +77,8 @@ body {
 
   .banner {
     margin-bottom: 1rem;
-}
+  }
+
+  .top-space {
+    padding-top: 3rem;
+  }
