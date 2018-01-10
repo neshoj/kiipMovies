@@ -21,6 +21,8 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/contact-us" routerLinkActive="active">Contact Us</a>
         </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">{{username}}</a>
@@ -31,12 +33,11 @@
           </div>
         </li>
       </ul>
-
     </div>
   </nav>
   <!-- <app-home>please wait, we are sorting out things...</app-home> -->
   <router-outlet></router-outlet>
-  
+
   <footer class="footer">
     <img class="float-right" src="https://image.tmdb.org/t/p/w45/x1ynrDnk4RgbsnMI9yrdcdEm6Fu.png" />
     <p class="float-left">&copy; {{ title }} 2017</p>

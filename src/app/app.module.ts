@@ -21,6 +21,7 @@ import { AuthGuard } from 'app/auth-guard.service';
 import { AuthService } from './auth.service';
 import { LoginComponent } from './login/login.component';
 import { DashboardRouting } from 'app/dashboard/dashboard-routing.module';
+import { RegisterComponent } from './register/register.component';
 
 
 
@@ -37,7 +38,8 @@ import { DashboardRouting } from 'app/dashboard/dashboard-routing.module';
     PagenotfoundComponent,
     MovieDetailComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    RegisterComponent
   ],
   imports: [
     DashboardRouting,

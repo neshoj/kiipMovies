@@ -9,6 +9,7 @@ import { Http } from '@angular/http';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { TokenResult } from 'app/TokenResult';
 import { Router } from '@angular/router';
+import { PlainResponse } from 'app/PlainResponse';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -21,6 +22,7 @@ export class AuthService {
   currentUser: string;
 
   authURL = 'http://localhost:3000/users/auth';
+  registerURL = 'http://localhost:3000/users/register';
 
   constructor(private http: HttpClient, private router: Router) {
     // set token if saved in local storage
@@ -55,4 +57,25 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
 
-}
+
+  register(firstName: string, secondName: string, email: string, password: string): Observable<string> {
+    return this.http.post(this.authURL, {
+      firstName: firstName,
+      secondName: secondName,
+      email: email,
+      password: password
+    }, httpOptions)
+      .map((response: PlainResponse) => {
+        // login successful if there's a jwt token in the response
+        if (response) {
+          // return true to indicate successful registration
+          return response.message;
+        } else {
+          // return false to indicate failed registration
+          return 'An error occured, try again.';
+        }
+      });
+    }
+
+
+  }

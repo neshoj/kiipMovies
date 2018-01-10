@@ -9,9 +9,11 @@ import { ExploreComponent } from 'app/explore/explore.component';
 import { MovieDetailComponent } from 'app/movie-detail/movie-detail.component';
 import { HomeComponent } from 'app/home/home.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from 'app/register/register.component';
 
 const appRoutes: Routes = [
     { path: 'login', component: LoginComponent },
+    { path: 'register', component: RegisterComponent },
     { path: '**', component: PagenotfoundComponent }
 ];
 

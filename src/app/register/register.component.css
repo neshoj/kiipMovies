@@ -30,39 +30,10 @@ div {
     position: relative;
 }
 
-
-
-.text-slate-300 { 
-    color: #90a4ae !important;    
+.display-block {
+    display: block;
 }
-
-.border-slate-300 {
-    border-color: #90a4ae;
-}
-
-.icon-object {
-    border-radius: 50%;
-    text-align: center;
-    margin: 10px;
-    border-width: 3px;
-    border-style: solid;
-    padding: 20px;
-    display: inline-block;
-}
-
 
 .content-group {
     margin-bottom: 20px !important;
-}
-
-.small.display-block {
-    margin-top: 3px;
-}
-
-.small {
-    font-size: 13px;
-}
-
-.display-block {
-    display: block;
 }
