@@ -119,3 +119,7 @@ body {
   color: #777;
   border-top: .05rem solid #e5e5e5;
 }
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -.015em;
+}

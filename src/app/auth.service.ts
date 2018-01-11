@@ -58,8 +58,8 @@ export class AuthService {
   }
 
 
-  register(firstName: string, secondName: string, email: string, password: string): Observable<string> {
-    return this.http.post(this.authURL, {
+  register(firstName: string, secondName: string, email: string, password: string): Observable<PlainResponse> {
+    return this.http.post(this.registerURL, {
       firstName: firstName,
       secondName: secondName,
       email: email,
@@ -69,13 +69,14 @@ export class AuthService {
         // login successful if there's a jwt token in the response
         if (response) {
           // return true to indicate successful registration
-          return response.message;
+          return response;
         } else {
           // return false to indicate failed registration
-          return 'An error occured, try again.';
+          return {
+            status: '01',
+            message: 'An error occured, try again.'
+          };
         }
       });
-    }
-
-
   }
+}

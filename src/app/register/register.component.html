@@ -12,37 +12,39 @@
       <div class="content">
 
         <!-- register -->
-        <form >
+        <form #registerForm="ngForm">
           <div class="panel panel-body login-form">
             <div class="text-center">
               <div class="icon-object border-slate-300 text-slate-300">
                 <i class="icon-reading"></i>
               </div>
-              <h5 class="content-group">Register
-                <small class="display-block">Create account to access KiipUp</small>
+              <h5 class="content-group">Create account
+                <small class="display-block">All fields are required</small>
               </h5>
             </div>
-
+            <span *ngIf="regsuccess" class="help-block text-success"><i class="icon-cancel-circle2 position-left"></i> {{regmsg}} </span>
+            <span *ngIf="regfail" class="help-block text-danger"><i class="icon-cancel-circle2 position-left"></i> {{regmsg}} </span>
+            
             <div class="content-divider text-muted form-group"><span>Personal Details</span></div>
 
             <div class="form-group has-feedback has-feedback-left">
-              <input type="text" class="form-control" name="firstName" placeholder="First name">
+              <input type="text" class="form-control" [(ngModel)]="model.firstName" name="firstName" placeholder="First name">
               <div class="form-control-feedback">
                 <i class="icon-user-check text-muted"></i>
               </div>
-              <span class="help-block text-danger"><i class="icon-cancel-circle2 position-left"></i> Field is required </span>
+              <!-- <span class="help-block text-danger"><i class="icon-cancel-circle2 position-left"></i> Field is required </span> -->
             </div>
 
             <div class="form-group has-feedback has-feedback-left">
-              <input type="text" class="form-control" name="secondName" placeholder="second name">
+              <input type="text" class="form-control" [(ngModel)]="model.secondName" name="secondName" placeholder="second name">
               <div class="form-control-feedback">
                 <i class="icon-user-check text-muted"></i>
               </div>
-              <span class="help-block text-danger"><i class="icon-cancel-circle2 position-left"></i> Field is required </span>
+              <!-- <span class="help-block text-danger"><i class="icon-cancel-circle2 position-left"></i> Field is required </span> -->
             </div>
 
             <div class="form-group has-feedback has-feedback-left">
-              <input type="text" class="form-control" placeholder="Your email">
+              <input type="text" class="form-control" [(ngModel)]="model.email" name="email" placeholder="Your email">
               <div class="form-control-feedback">
                 <i class="icon-mention text-muted"></i>
               </div>
@@ -51,7 +53,7 @@
             <div class="content-divider text-muted form-group"><span>Your privacy</span></div>
 
             <div class="form-group has-feedback has-feedback-left">
-              <input type="password" class="form-control" placeholder="Create password">
+              <input type="password" class="form-control" [(ngModel)]="model.password" name="password" placeholder="Create password">
               <div class="form-control-feedback">
                 <i class="icon-user-lock text-muted"></i>
               </div>
@@ -64,7 +66,7 @@
               </div>
             </div>
 
-            <div class="content-divider text-muted form-group"><span>Additions</span></div>
+            <!-- <div class="content-divider text-muted form-group"><span>Additions</span></div>
 
             <div class="form-group">
              
@@ -75,10 +77,9 @@
                 </label>
               </div>
 
-            </div>
-
-            <button type="submit" class="btn bg-teal btn-block btn-lg">Register <i class="icon-circle-right2 position-right"></i></button>
-            <div class="text-center">
+            </div> -->
+            <button type="submit" class="btn bg-teal btn-block btn-md" (click)="register()">Register <i class="icon-circle-right2 position-right"></i></button>
+            <div class="text-center login-link">
               <a routerLink="/login" >Login to your account</a>
             </div>
           </div>
