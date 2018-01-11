@@ -17,6 +17,9 @@
 
     <div class="col-md-2 col-sm-6 col-xs-12 banner" *ngFor="let movie of displayList; let i = index">
       <div class="card">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Cras justo odio</li>
+        </ul>
         <img class="card-img-top img-fluid" src="{{movie.poster_path}}" alt="movie image">
         <div class="card-footer">
           <a routerLink="/movie-detail/{{movie.id}}">

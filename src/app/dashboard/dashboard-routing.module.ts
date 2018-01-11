@@ -1,3 +1,4 @@
+import { UserProfileComponent } from './../user-profile/user-profile.component';
 import { DashboardComponent } from './dashboard.component';
 import { ContactUsComponent } from 'app/contact-us/contact-us.component';
 import { AboutUsComponent } from 'app/about-us/about-us.component';
@@ -25,6 +26,10 @@ const dashboardRoutes: Routes = [
             {
                 path: 'about',
                 component: AboutUsComponent
+            },
+            {
+                path: 'profile',
+                component: UserProfileComponent
             },
             {
                 path: 'contact-us',

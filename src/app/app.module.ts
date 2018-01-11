@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { JumbotronComponent } from './jumbotron/jumbotron.component';
@@ -22,6 +22,9 @@ import { AuthService } from './auth.service';
 import { LoginComponent } from './login/login.component';
 import { DashboardRouting } from 'app/dashboard/dashboard-routing.module';
 import { RegisterComponent } from './register/register.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { TokenInterceptor } from 'app/TokenInterceptor';
+import { ServerRequestService } from './server-request.service';
 
 
 
@@ -39,7 +42,8 @@ import { RegisterComponent } from './register/register.component';
     MovieDetailComponent,
     LoginComponent,
     DashboardComponent,
-    RegisterComponent
+    RegisterComponent,
+    UserProfileComponent
   ],
   imports: [
     DashboardRouting,
@@ -49,7 +53,11 @@ import { RegisterComponent } from './register/register.component';
     HttpClientModule,
     HttpModule
   ],
-  providers: [MovieService, AuthGuard, AuthService],
+  providers: [MovieService, AuthGuard, AuthService, ServerRequestService, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

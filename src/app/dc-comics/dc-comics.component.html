@@ -2,6 +2,9 @@
   <div class="row">
     <div class="col-md-2 banner" *ngFor="let movie of displayList">
       <div class="card">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Cras justo odio</li>
+        </ul>
         <img class="card-img-top img-fluid" src="{{movie.poster_path}}" alt="Card image cap">
         <div class="card-footer">
             <a routerLink="/movie-detail/{{movie.id}}"><small class="text-muted"> {{movie.release_date | date : 'longDate'}} </small></a>

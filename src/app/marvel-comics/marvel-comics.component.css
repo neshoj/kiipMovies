@@ -1,0 +1,15 @@
+.like-icon:after {
+    content: "\f004";
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+.like-icon:before, .like-icon:after {
+    transition: opacity 0.3s,transform 0.4s cubic-bezier(.0,-.41,.19,2.5);
+    font-family: "FontAwesome";
+    position: absolute;
+    right: 0;
+    left: 0;
+    text-align: center;
+    top: 9px;
+}
