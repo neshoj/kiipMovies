@@ -1,0 +1,23 @@
+.blv {
+    margin-right: 5px;
+    font-weight: normal;
+    font-size: 85%;
+    color: rgb(162, 169, 177);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.top-space { 
+    margin-top: 0.5rem;
+}
+.othermovies {
+    margin-top: 1rem !important;
+}
+
+  /* Custom page footer */
+  .footer {
+    padding-top: 20px;
+    margin-top: 20px;
+    color: #777;
+    border-top: .05rem solid #e5e5e5;
+  }

@@ -5,7 +5,9 @@ import { ProfileResult } from 'app/profile-result';
 import { Observable } from 'rxjs/Observable';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  headers: new HttpHeaders()
+    .set('Authorization', `Bearer ${JSON.parse(localStorage.getItem('currentUser')).token}`)
+    .set('Content-Type', 'application/json')
 };
 
 @Injectable()
@@ -18,7 +20,7 @@ export class ServerRequestService {
       email: email
     }, httpOptions)
       .map((response: ProfileResult) => {
-        console.log('Got profile response: ' + JSON.stringify(response));
+        console.log('Profile response: ' + JSON.stringify(response));
         return response;
       });
   }

@@ -9,15 +9,15 @@ export class TokenInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
         // User has logged in, all requests need to be authenticated
-        if (localStorage.getItem('currentUser')) {
-            const cloneReq = request.clone({
-                setHeaders: {
-                    Authorization: `Bearer ${JSON.parse(localStorage.getItem('currentUser')).token}`
-                }
-            });
+        // if (localStorage.getItem('currentUser')) {
+        //     const cloneReq = request.clone({
+        //         setHeaders: {
+        //             Authorization: `Bearer ${JSON.parse(localStorage.getItem('currentUser')).token}`
+        //         }
+        //     });
 
-            return next.handle(cloneReq);
-        }
+        //     return next.handle(cloneReq);
+        // }
 
         // For Login/registration reqeusts
         return next.handle(request);
