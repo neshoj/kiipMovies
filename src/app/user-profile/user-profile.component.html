@@ -1,4 +1,22 @@
+
+  <div class="row">
+      <div class="col-md-6">
+       <nav>
+         <ul class="nav nav-pills float-left">
+           <li class="nav-item active" href="#"> Profile </li>
+         </ul>
+       </nav>
+      </div>
+      <div class="col-md-6">
+  
+      </div>
+    </div>
+
+
 <span *ngIf="profile">
+
+
+
   <div class="row">
 
     <div class="col-md-6  col-sm-12 top-space">
@@ -6,12 +24,13 @@
         <div class="col-md-12  col-sm-12">
           <ul class="list-group">
             <li class="list-group-item">
-              <span class="blv">Name </span><h5> {{profile.firstName}} {{profile.secondName}} </h5>
+              <span class="blv">Name </span>
+              <h5> {{profile.firstName}} {{profile.secondName}} </h5>
             </li>
             <li class="list-group-item">
               <span class="blv">Email </span> {{profile.email}} </li>
             <li class="list-group-item">
-              <span class="blv">Role </span> Admin </li>
+              <span class="blv">Role </span> {{userRole}} </li>
           </ul>
         </div>
       </div>
@@ -20,6 +39,6 @@
   </div>
 </span>
 
-<span *ngIf="! profile.firstName">
+<span *ngIf="!profile.email">
   <h4>Loading profile...</h4>
 </span>

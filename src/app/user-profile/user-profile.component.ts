@@ -1,6 +1,7 @@
 import { ProfileResult } from './../profile-result';
 import { Component, OnInit } from '@angular/core';
 import { ServerRequestService } from 'app/server-request.service';
+import { AuthService } from 'app/auth.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -8,6 +9,7 @@ import { ServerRequestService } from 'app/server-request.service';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
+  userRole = 'User';
   profile: ProfileResult = {
     status: '',
     message: '',
@@ -18,7 +20,8 @@ export class UserProfileComponent implements OnInit {
     admin: false
   };
 
-  constructor(private serverRequestService: ServerRequestService) { }
+  constructor(private serverRequestService: ServerRequestService,
+    private authService: AuthService) { }
 
   ngOnInit() {
     this.fetchUserProfile();
@@ -26,6 +29,14 @@ export class UserProfileComponent implements OnInit {
 
   fetchUserProfile(): void {
     this.serverRequestService.fetchProfileByEmail(JSON.parse(localStorage.getItem('currentUser')).user)
-      .subscribe(result => this.profile = result);
+      .subscribe(result => {
+
+        if (result.status === '403') {
+          this.authService.logout();
+        }
+
+        this.profile = result;
+        if (this.profile.admin === true) { this.userRole = 'Administrator'; };
+      });
   }
 }

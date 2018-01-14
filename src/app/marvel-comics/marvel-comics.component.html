@@ -4,11 +4,11 @@
         <div class="col-md-2 banner"   *ngFor="let movie of displayList">
           <div class="card">
               <ul class="list-group list-group-flush">
-                <li class="list-group-item">Cras justo odio
+                <li class="list-group-item"><a routerLink="/movie-detail/{{movie.id}}">{{movie.original_title |  slice:0:13}}</a>
                     <span class="like-icon liked"></span>
                 </li>
               </ul>
-            <img class="card-img-top img-fluid" src="{{movie.poster_path}}" alt="Card image cap">
+            <img class="card-img-top img-fluid" [src]="movie.poster_path" alt="movie poster">
             <div class="card-footer">
                 <a routerLink="/movie-detail/{{movie.id}}"><small class="text-muted"> {{movie.release_date | date : 'longDate'}} </small></a>
             </div>
