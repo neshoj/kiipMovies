@@ -23,7 +23,7 @@
         <img class="card-img-top img-fluid" src="{{movie.poster_path}}" alt="movie image">
         <div class="card-footer">
           <a routerLink="/movie-detail/{{movie.id}}">
-            <small class="text-muted"> {{movie.release_date | date : 'longDate' }} </small>
+            <small class="text-muted"> {{movie.release_date |  date: 'mediumDate' }} </small>
           </a>
         </div>
       </div>
