@@ -20,6 +20,7 @@ export class AuthService {
   redirectURL: string;
   public token: string;
   currentUser: string;
+  isLoggedIn: boolean;
 
   authURL = 'http://localhost:3000/users/auth';
   registerURL = 'http://localhost:3000/users/register';
@@ -31,25 +32,25 @@ export class AuthService {
   }
 
   login(username: string, password: string): Observable<boolean> {
-    return this.http.post(this.authURL, { email: username, password: password }, httpOptions)
-      .map((response: TokenResult) => {
-        // login successful if there's a jwt token in the response
-        if (response && response.status === '00') {
-          // set token property
-          this.token = response.token;
-          // // store username and jwt token in local storage to keep user logged in between page refreshes
-          localStorage.setItem('currentUser', JSON.stringify(response));
+    // return this.http.post(this.authURL, { email: username, password: password }, httpOptions)
+    //   .map((response: TokenResult) => {
+    //     // login successful if there's a jwt token in the response
+    //     if (response && response.status === '00') {
+    //       // set token property
+    //       this.token = response.token;
+    //       // // store username and jwt token in local storage to keep user logged in between page refreshes
+    //       localStorage.setItem('currentUser', JSON.stringify(response));
 
-          // return true to indicate successful login
-          return true;
-        } else {
-          // return false to indicate failed login
-          return false;
-        }
-      });
+    //       // return true to indicate successful login
+    //       return true;
+    //     } else {
+    //       // return false to indicate failed login
+    //       return false;
+    //     }
+    //   });
 
-
-    // return Observable.of(true).delay(1000).do(val => this.isLoggedIn = true);
+    localStorage.setItem('currentUser',  JSON.stringify({user:'ojiambo'}));
+    return Observable.of(true).delay(1000).do(val => this.isLoggedIn = true);
   }
 
   logout(): void {
